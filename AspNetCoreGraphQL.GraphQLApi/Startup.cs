@@ -22,6 +22,11 @@ namespace AspNetCoreGraphQL.GraphQLApi
         {
             services.AddSingleton<IReservationRepository, ReservationRepositoryMock>();
 
+            services.Configure<IISServerOptions>(options =>
+            {
+                options.AutomaticAuthentication = false;
+            });
+
             // GraphQL
             services.AddScoped<IDependencyResolver>(x =>
                 new FuncDependencyResolver(x.GetRequiredService));

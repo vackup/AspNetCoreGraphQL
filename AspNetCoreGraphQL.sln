@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreGraphQL", "AspNet
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreGraphQL.GraphQLApi", "AspNetCoreGraphQL.GraphQLApi\AspNetCoreGraphQL.GraphQLApi.csproj", "{5CD4DC16-8970-4A41-BA77-C80880AD7C13}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreGraphQL.ReactUI", "AspNetCoreGraphQL.ReactUI\AspNetCoreGraphQL.ReactUI.csproj", "{C1DC1064-4292-498B-B5B4-C68581E06745}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5CD4DC16-8970-4A41-BA77-C80880AD7C13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CD4DC16-8970-4A41-BA77-C80880AD7C13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CD4DC16-8970-4A41-BA77-C80880AD7C13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1DC1064-4292-498B-B5B4-C68581E06745}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1DC1064-4292-498B-B5B4-C68581E06745}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1DC1064-4292-498B-B5B4-C68581E06745}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1DC1064-4292-498B-B5B4-C68581E06745}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
