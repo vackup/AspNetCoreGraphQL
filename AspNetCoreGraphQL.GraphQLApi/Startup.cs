@@ -10,12 +10,16 @@ using GraphQL.Server.Ui.Playground;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace AspNetCoreGraphQL.GraphQLApi
 {
     public class Startup
     {
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
@@ -26,6 +30,13 @@ namespace AspNetCoreGraphQL.GraphQLApi
             {
                 options.AutomaticAuthentication = false;
             });
+
+            services.AddCors(options => options.AddPolicy(this.MyAllowSpecificOrigins, builder =>
+                builder.WithOrigins("https://localhost:5006")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()));
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             // GraphQL
             services.AddScoped<IDependencyResolver>(x =>
@@ -49,6 +60,10 @@ namespace AspNetCoreGraphQL.GraphQLApi
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(this.MyAllowSpecificOrigins);
+
+            app.UseMvc();
 
             // add http for Schema at default url /graphql
             app.UseGraphQL<MyHotelSchema>("/graphql");

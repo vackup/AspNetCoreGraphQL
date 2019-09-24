@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreGraphQL", "AspNetCoreGraphQL\AspNetCoreGraphQL.csproj", "{FF314039-E812-411A-A391-A3C5A32D9456}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreGraphQL.GraphQLApi", "AspNetCoreGraphQL.GraphQLApi\AspNetCoreGraphQL.GraphQLApi.csproj", "{5CD4DC16-8970-4A41-BA77-C80880AD7C13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreGraphQL.GraphQLApi", "AspNetCoreGraphQL.GraphQLApi\AspNetCoreGraphQL.GraphQLApi.csproj", "{5CD4DC16-8970-4A41-BA77-C80880AD7C13}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreGraphQL.ReactUI", "AspNetCoreGraphQL.ReactUI\AspNetCoreGraphQL.ReactUI.csproj", "{C1DC1064-4292-498B-B5B4-C68581E06745}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreGraphQL.ReactUI", "AspNetCoreGraphQL.ReactUI\AspNetCoreGraphQL.ReactUI.csproj", "{C1DC1064-4292-498B-B5B4-C68581E06745}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FF314039-E812-411A-A391-A3C5A32D9456}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF314039-E812-411A-A391-A3C5A32D9456}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF314039-E812-411A-A391-A3C5A32D9456}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF314039-E812-411A-A391-A3C5A32D9456}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5CD4DC16-8970-4A41-BA77-C80880AD7C13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5CD4DC16-8970-4A41-BA77-C80880AD7C13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CD4DC16-8970-4A41-BA77-C80880AD7C13}.Release|Any CPU.ActiveCfg = Release|Any CPU

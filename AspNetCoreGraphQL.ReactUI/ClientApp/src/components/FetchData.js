@@ -6,7 +6,7 @@ import gql from "graphql-tag";
 
 const cache = new InMemoryCache();
 const link = new HttpLink({
-    uri: 'https://localhost:5001'
+    uri: 'https://localhost:5001/graphql'
 });
 
 const client = new ApolloClient({
@@ -21,25 +21,48 @@ export class FetchData extends Component {
     super(props);
       this.state = { forecasts: [], loading: true };
 
-      client.query({
-              query: gql`query getReservation{
-                  reservations {
-                      checkinDate
-                      checkoutDate
-                      guest{
-                        name
-                      }
-                    }
-                  }
-                }`
-          })
-          .then(result => console.log(result));
+      //debugger;
 
-    fetch('api/SampleData/WeatherForecasts')
+      //client.query({
+      //        query: gql`query getReservation{
+      //            reservations {
+      //                checkinDate
+      //                checkoutDate
+      //                guest{
+      //                  name
+      //                }
+      //              }
+      //          }`
+      //    })
+      //    .then(
+      //        result => {
+      //            debugger;
+      //            console.log(result);
+      //        }
+      //);
+
+      fetch('https://localhost:44309/api/SampleData/WeatherForecasts')
       .then(response => response.json())
       .then(data => {
         this.setState({ forecasts: data, loading: false });
       });
+
+      var data = JSON.stringify({
+          "operationName": null,
+          "variables": {},
+          "query": "{\n  reservations {\n    checkinDate\n    checkoutDate\n    guest {\n      name\n    }\n  }\n}\n"
+      });
+
+      fetch('https://localhost:44309/graphql', {
+              method: "post",
+              headers: {
+                  "Content-Type": "application/json"
+              },
+          body: data
+          })
+          .then(result => {
+              console.log(result);
+          });
   }
 
   static renderForecastsTable (forecasts) {
