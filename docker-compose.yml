@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  aspnetcoregraphql.reactui:
+    image: ${DOCKER_REGISTRY-}aspnetcoregraphqlreactui
+    build:
+      context: .
+      dockerfile: AspNetCoreGraphQL.ReactUI/Dockerfile
+
+  aspnetcoregraphql.graphqlapi:
+    image: ${DOCKER_REGISTRY-}aspnetcoregraphqlgraphqlapi
+    build:
+      context: .
+      dockerfile: AspNetCoreGraphQL.GraphQLApi/Dockerfile
+

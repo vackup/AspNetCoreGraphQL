@@ -31,6 +31,18 @@
       "commandName": "IIS",
       "launchBrowser": true,
       "launchUrl": "http://localhost:83/AspNetCoreGraphQL.GraphQLApi"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "environmentVariables": {
+        "ASPNETCORE_URLS": "https://+:443;http://+:80",
+        "ASPNETCORE_HTTPS_PORT": "44310"
+      },
+      "httpPort": 64414,
+      "useSSL": true,
+      "sslPort": 44310
     }
   }
 }
