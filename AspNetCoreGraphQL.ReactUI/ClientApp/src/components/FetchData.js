@@ -1,18 +1,4 @@
 import React, { Component } from 'react';
-import { ApolloClient } from 'apollo-client';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { HttpLink } from 'apollo-link-http';
-import gql from "graphql-tag";
-
-const cache = new InMemoryCache();
-const link = new HttpLink({
-    uri: 'https://localhost:5001/graphql'
-});
-
-const client = new ApolloClient({
-    cache,
-    link
-});
 
 export class FetchData extends Component {
   static displayName = FetchData.name;
@@ -20,26 +6,6 @@ export class FetchData extends Component {
   constructor (props) {
     super(props);
       this.state = { forecasts: [], loading: true };
-
-      //debugger;
-
-      //client.query({
-      //        query: gql`query getReservation{
-      //            reservations {
-      //                checkinDate
-      //                checkoutDate
-      //                guest{
-      //                  name
-      //                }
-      //              }
-      //          }`
-      //    })
-      //    .then(
-      //        result => {
-      //            debugger;
-      //            console.log(result);
-      //        }
-      //);
 
       fetch('https://localhost:44309/api/SampleData/WeatherForecasts')
       .then(response => response.json())
@@ -50,7 +16,15 @@ export class FetchData extends Component {
       var data = JSON.stringify({
           "operationName": null,
           "variables": {},
-          "query": "{\n  reservations {\n    checkinDate\n    checkoutDate\n    guest {\n      name\n    }\n  }\n}\n"
+          "query": "{ " +
+              "reservations { " +
+              "checkinDate " +
+              "checkoutDate " +
+              "guest { " +
+              "name " +
+              "} " +
+            "} " +
+        "}"
       });
 
       fetch('https://localhost:44309/graphql', {
