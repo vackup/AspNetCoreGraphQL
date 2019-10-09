@@ -6,6 +6,8 @@
     <UserSecretsId>d330c076-d3c9-4117-b6e7-13c8ea0541e6</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+    <!-- SonarQube needs this -->
+    <ProjectGuid>{568b031e-8f02-44fe-b922-67b8d9d1b0d4}</ProjectGuid>
   </PropertyGroup>
 
   <ItemGroup>
