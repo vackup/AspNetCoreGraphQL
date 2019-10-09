@@ -12,9 +12,6 @@ pool:
 variables:
   buildConfiguration: 'Release'
 
-steps:
-- script: dotnet restore
-
 - task: DotNetCoreCLI@2
   displayName: Build
   inputs:
