@@ -7,12 +7,21 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'Ubuntu-16.04'
 
 variables:
   buildConfiguration: 'Release'
 
 steps:
+- task: SonarCloudPrepare@1
+  displayName: 'Prepare SonarCloud analysis'
+  inputs:
+    SonarCloud: 'SonarCloudHZ'
+    organization: '$(organization)'
+    projectKey: '$(projectKey)'
+    projectName: '$(projectName)'
+    projectVersion: '$(Build.BuildNumber)'
+
 - task: DotNetCoreCLI@2
   displayName: Build
   inputs:
@@ -20,14 +29,20 @@ steps:
     projects: '**/*.csproj'
     arguments: '--configuration $(buildConfiguration)' # Update this to match your need
 
-# Create the deployment package for your web project
-- task: DotNetCoreCLI@2
-  displayName: ".NET publish package"
-  inputs:
-    command: publish
-    arguments: '--configuration $(BuildConfiguration) --no-restore --output $(Build.ArtifactStagingDirectory)/app/pkg'
+- task: SonarCloudAnalyze@1
+  displayName: 'Run SonarCloud code analysis'
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathtoPublish: $(Build.ArtifactStagingDirectory)
-    artifactName: MyBuildOutputs
+- task: SonarCloudPublish@1
+  displayName: 'Publish SonarCloud quality gate results'
+
+# Create the deployment package for your web project
+#- task: DotNetCoreCLI@2
+#  displayName: ".NET publish package"
+#  inputs:
+#    command: publish
+#    arguments: '--configuration $(BuildConfiguration) --no-restore --output $(Build.ArtifactStagingDirectory)/app/pkg'
+
+#- task: PublishBuildArtifacts@1
+#  inputs:
+#    pathtoPublish: $(Build.ArtifactStagingDirectory)
+#    artifactName: MyBuildOutputs
